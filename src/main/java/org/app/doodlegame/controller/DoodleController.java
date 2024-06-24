@@ -17,11 +17,12 @@ public class DoodleController {
     @Autowired
     private DoodleService doodleService;
 
-    @GetMapping("/")
-    public String index() {
-        // return "jdjdidi";
-        return "index";
-    }
+    // @GetMapping("/playSolo")
+    // public String playSolo(Model model) {
+    //     model.addAttribute("isLogin", false);
+    //     // return "jdjdidi";
+    //     return "playSolo";
+    // }
 
     @PostMapping("/predict")
     @ResponseBody
