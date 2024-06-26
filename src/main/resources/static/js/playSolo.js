@@ -72,3 +72,5 @@ function sendDrawing() {
         console.error('Error:', error);
     });
 }
+
+
