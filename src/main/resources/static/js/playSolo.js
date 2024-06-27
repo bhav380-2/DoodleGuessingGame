@@ -13,9 +13,9 @@ canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mousemove', draw);
 
 function startDrawing(e) {
-    e.preventDefault();
-    drawing = true;
-    draw(e);
+    // e.preventDefault();
+    // drawing = true;/
+    // draw(e);
 }
 
 function stopDrawing(e) {
