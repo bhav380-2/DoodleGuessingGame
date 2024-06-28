@@ -2,6 +2,15 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let drawing = false;
 
+// Resize canvas
+function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
 // Mobile touch events
 canvas.addEventListener('touchstart', startDrawing);
 canvas.addEventListener('touchend', stopDrawing);
@@ -12,26 +21,28 @@ canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mousemove', draw);
 
+document.addEventListener('mouseup', stopDrawing);
+document.addEventListener('touchend', stopDrawing);
+
 function startDrawing(e) {
-    // e.preventDefault();
-    // drawing = true;/
-    // draw(e);
+    drawing = true;
+    draw(e);
 }
 
 function stopDrawing(e) {
     e.preventDefault();
     drawing = false;
     ctx.beginPath();
-    sendDrawing();
+    // sendDrawing();
 }
 
 function draw(e) {
     if (!drawing) return;
 
     e.preventDefault();
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 4.4;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = 'black';
+    ctx.strokeStyle = 'white';
 
     let x, y;
     if (e.touches) {
@@ -72,5 +83,3 @@ function sendDrawing() {
         console.error('Error:', error);
     });
 }
-
-
